@@ -4,6 +4,7 @@ import "./globals.css";
 import { cn } from '../lib/utils'
 
 const inter = Inter({ subsets: ["latin"] });
+import  Navbar from "../components/Navbar";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,7 +18,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className='light'>
-      <body className={cn('min-height-screen font-sans antialiased grainy', inter.className)}>{children}</body>
+      <body className={cn('min-height-screen font-sans antialiased grainy', inter.className)}>
+        <Navbar />
+        {children}
+      </body>
     </html>
   );
 }

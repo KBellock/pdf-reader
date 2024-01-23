@@ -74,3 +74,7 @@
     @apply bg-background text-foreground;
   }
 }
+
+.grainy {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 160 160' preserveAspectRatio='none'%3E%3Cpath d='M0 0h160v160H0z' fill='%23%23%23%23%23%23' fill-opacity='0.02'/%3E%3C/svg%3E");
+}
