@@ -4,6 +4,7 @@ import { useRouter, useSearchParams } from 'next/navigation'
 import { useQuery } from '@tanstack/react-query'
 import { trpc } from '../_trpc/client'
 import { Loader2 } from 'lucide-react'
+import { appRouter } from '@/trpc'
 
 const Page = () => {
   const router = useRouter()
@@ -11,20 +12,17 @@ const Page = () => {
   const searchParams = useSearchParams()
   const origin = searchParams.get('origin')
 
-  const { status, data, error } = useQuery(
-    {
-      queryKey: ['authCallback', undefined],
-      enabled: false,
+  const data = trpc.authCallback.useQuery()
+  
+    if (data.isSuccess) {
+      router.push(origin ? `/${origin}` : '/dashboard')
+    } else {
+      router.push('/sign-in')
     }
-  )
+  
+  
 
-  if (status === 'success') {
-    router.push(origin ? `/${origin}` : '/dashboard')
-  }
-
-  if (status === 'error') {
-    return <span>{error.message}</span>
-  }
+  
 
 
 
