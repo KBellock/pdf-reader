@@ -39,7 +39,7 @@ export default function Home() {
         <div className='mx-auto max-w-6xl px-6 lg:px-8'>
           <div className='mt-16 flow-root sm:mt-24'>
             <div className='-m-2 rounded-xl bg-gray-900/5 p-2 ring-1 ring-inset ring-gray-900/10 lg:-m-4 lg:rounded-2xl lg:p-4'>
-              <Image src='/dashboard-preview.jpg' alt='product preview' width={1920} height={1080} quality={100} 
+              <Image src='/dashboard-preview.jpg' alt='product preview' priority={false} width={1920} height={1080} quality={100} 
               className='rounded-md bg-white p-2 sm:p=8 md:p-20 shadow-2xl ring-1 ring-gray-900/10' />
             </div>
           </div>
@@ -124,7 +124,7 @@ export default function Home() {
         <div className='mx-auto max-w-6xl px-6 lg:px-8'>
         <div className='mt-16 flow-root sm:mt-24'>
             <div className='-m-2 rounded-xl bg-gray-900/5 p-2 ring-1 ring-inset ring-gray-900/10 lg:-m-4 lg:rounded-2xl lg:p-4'>
-              <Image src='/file-upload-preview.jpg' alt='upload preview' width={1419} height={732} quality={100} 
+              <Image src='/file-upload-preview.jpg' alt='upload preview' priority={false} width={1419} height={732} quality={100} 
               className='rounded-md bg-white p-2 sm:p=8 md:p-20 shadow-2xl ring-1 ring-gray-900/10' />
             </div>
           </div>
