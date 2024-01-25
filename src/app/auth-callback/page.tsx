@@ -1,6 +1,7 @@
 "use client"
 
 import { useRouter, useSearchParams } from 'next/navigation'
+import { useQuery } from '@tanstack/react-query'
 import { trpc } from '../_trpc/client'
 import { Loader2 } from 'lucide-react'
 
@@ -10,7 +11,24 @@ const Page = () => {
   const searchParams = useSearchParams()
   const origin = searchParams.get('origin')
 
-  trpc.authCallback.useQuery(undefined, {
+  const { status, data, error } = useQuery(
+    {
+      queryKey: ['authCallback', undefined],
+      enabled: false,
+    }
+  )
+
+  if (status === 'success') {
+    router.push(origin ? `/${origin}` : '/dashboard')
+  }
+
+  if (status === 'error') {
+    return <span>{error.message}</span>
+  }
+
+
+
+ /* trpc.authCallback.useQuery(undefined, {
     onSuccess: ({ success }) => {
       if (success) {
         // user is synced to db
@@ -24,7 +42,7 @@ const Page = () => {
     },
     retry: true,
     retryDelay: 500,
-  })
+  }) */
 
   return (
     <div className='w-full mt-24 flex justify-center'>
